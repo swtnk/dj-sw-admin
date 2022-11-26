@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-extensions = "*"
+django-cors-headers = "*"
+django-debug-toolbar = "*"
+django-filter = "*"
+djangorestframework = "*"
+markdown = "*"
+django-environ = "*"
+drf-spectacular = {extras = ["sidecar"], version = "*"}
+werkzeug = "*"
+requests = "*"
+
+[dev-packages]
+pytest = "*"
+black = "*"
+autoflake = "*"
+
+[requires]
+python_version = "3.9"
