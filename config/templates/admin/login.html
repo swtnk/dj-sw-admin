@@ -3,6 +3,7 @@
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static "sw-theme/css/pages/page-auth.css" %}" />
 {% endblock %}
+{% block bodyclass %}{{ block.super }} login{% endblock %}
 {% block body %}
 <div class="container-xxl">
   <div class="authentication-wrapper authentication-basic container-p-y">
@@ -59,7 +60,9 @@
                                   </g>
                               </svg>
                           </span>
-                          <span class="app-brand-text demo text-body fw-bolder">Snedat</span>
+                          <span class="app-brand-text demo text-body fw-bolder">
+                            {% block content_title %}{% endblock %}
+                          </span>
                       </a>
                   </div>
                   {% comment %}
