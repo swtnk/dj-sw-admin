@@ -61,7 +61,9 @@
                               </svg>
                           </span>
                           <span class="app-brand-text demo text-body fw-bolder">
-                            {% block content_title %}{% endblock %}
+                            {% block branding %}
+                            <h1 class="h3 mb-0" id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+                            {% endblock %}
                           </span>
                       </a>
                   </div>
@@ -94,9 +96,11 @@
                     <div class="mb-3 form-password-toggle">
                         <div class="d-flex justify-content-between">
                             <label class="form-label" for="id_password">Password</label>
-                            <a href="auth-forgot-password-basic.html">
-                                <small>Forgot Password?</small>
+                            {% comment %}
+                            <a href="{% url "admin_password_reset" %}">
+                              <small>Forgot Password?</small>
                             </a>
+                            {% endcomment %}
                         </div>
                         <div class="input-group input-group-merge">
                             <input type="password" name="password" id="id_password" class="form-control" autocomplete="current-password" required placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
@@ -116,13 +120,14 @@
                         <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                     </div>
                   </form>
-
+                  {% comment %}
                   <p class="text-center">
                       <span>New on our platform?</span>
                       <a href="auth-register-basic.html">
                           <span>Create an account</span>
                       </a>
                   </p>
+                  {% endcomment %}
               </div>
           </div>
           <!-- /Register -->

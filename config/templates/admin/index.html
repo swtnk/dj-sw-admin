@@ -10,16 +10,15 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block nav-sidebar %}{% endblock %}
-
+    
 {% block content %}
-<div id="content-main">
-  {% include "admin/app_list.html" with app_list=app_list show_changelinks=True %}
+<div class="col-sm-9">
+  {% include "admin/app_list.old.html" with app_list=app_list show_changelinks=True %}
 </div>
 {% endblock %}
-
 {% block sidebar %}
-<div id="content-related">
-    <div class="module" id="recent-actions-module">
+<div class="col-sm-3">
+    <div class="module">
         <h2>{% translate 'Recent actions' %}</h2>
         <h3>{% translate 'My actions' %}</h3>
             {% load log %}
