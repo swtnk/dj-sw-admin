@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{% static "sw-theme/vendors/material_io/material-components-web.min.css" %}" />
     <link rel="stylesheet" href="{% static "sw-theme/libs/perfect-scrollbar/perfect-scrollbar.css" %}" />
     <link rel="stylesheet" href="{% static "sw-theme/libs/apex-charts/apex-charts.css" %}" />
+    <link rel="stylesheet" href="{% static "sw-theme/css/custom.css" %}" />
     {% block extrastyle %}{% endblock %}
     <script src="{% static "sw-theme/js/helpers.js" %}"></script>
     <script src="{% static "sw-theme/js/config.js" %}"></script>
@@ -145,11 +146,22 @@
                     {% block content-main %}
                     <div class="container-xxl flex-grow-1 container-p-y">
                         {% block pretitle %}{% endblock %}
-                        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+                        
                         {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
                         <div class="row">
+                            <div class="col-sm-9">
+                                <div class="card">
+                                    <div class="card-body">{% block content_title %}{% if title %}<h1 class="h4 p-0 m-0">{{ title }}</h1>{% endif %}{% endblock %}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="card-body">{% block object-tools %}{% endblock %}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             {% block content %}
-                                {% block object-tools %}{% endblock %}
                                 {{ content }}
                             {% endblock %}
                             {% block sidebar %}{% endblock %}
